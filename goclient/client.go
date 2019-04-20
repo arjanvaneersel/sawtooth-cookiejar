@@ -4,7 +4,6 @@ import (
 	gobytes "bytes"
 	"crypto/sha512"
 	"encoding/hex"
-	"errors"
 	"fmt"
 	"io/ioutil"
 	"math/rand"
@@ -276,7 +275,7 @@ func NewCookiejarClient(url string, keyFile string) (*CookiejarClient, error) {
 		// Read private key file
 		privateKeyStr, err := ioutil.ReadFile(keyFile)
 		if err != nil {
-			return nil, errors.New(fmt.Sprintf("Failed to read private key: %v", err))
+			return nil, fmt.Errorf("Failed to read private key: %v", err)
 		}
 		// Get private key object
 		privateKey = signing.NewSecp256k1PrivateKey(privateKeyStr)

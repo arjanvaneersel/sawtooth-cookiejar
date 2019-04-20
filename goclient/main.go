@@ -17,7 +17,7 @@ const (
 	defaultURL = "http://rest-api:8008"
 )
 
-var logger *logging.Logger = logging.Get()
+var logger = logging.Get()
 
 // printHelp will print how to use the CLI tool
 func printHelp(msg string) {
