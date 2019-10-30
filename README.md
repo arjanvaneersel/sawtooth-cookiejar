@@ -18,7 +18,7 @@ The cookie jar count is stored at an 70 hex digit address derived from:
 * the first 64 hex characters of the SHA-512 hash of the "mycookiejar" public key in hex.
 
 ## Purpose
-The material is made for the introduction to Hyperledger Sawtooth workshop on the 20th of April in Sofia, Bulgaria and is based upon the original cookiejar example by Dan Anderson. 
+The material is made for the introduction to Hyperledger Sawtooth workshop on the 31st of October in Sofia, Bulgaria and is based on the original cookiejar example by Dan Anderson.
 
 ## Components
 The cookie jar transaction family contains two parts, both having a version in Python 3 and Go:
@@ -101,4 +101,4 @@ This example and Hyperledger Sawtooth software are licensed under the [Apache Li
 ![Photo of sawtooth cookie cutters]( images/sawtooth-cookie-cutters.jpg "Sawtooth cookie cutters")
 <br /> *Antique sawtooth cookie cutters.*
 
-© Copyright 2018, Intel Corporation and Arjan van Eersel.
+© Copyright 2018-2019, Intel Corporation and Arjan van Eersel.

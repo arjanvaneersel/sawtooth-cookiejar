@@ -22,8 +22,8 @@ services:
     container_name: cookiejar-client
     build:
       context: .
-      dockerfile: ./pyclient/Dockerfile
-      #dockerfile: ./goclient/Dockerfile
+      #dockerfile: ./pyclient/Dockerfile
+      dockerfile: ./goclient/Dockerfile
       args:
         - http_proxy
         - https_proxy

@@ -6,23 +6,21 @@ RUN apt-get update \
  && apt-get install gnupg -y
 
 RUN echo "deb [arch=amd64] http://repo.sawtooth.me/ubuntu/ci bionic universe" >> /etc/apt/sources.list \
- && echo "deb [arch=amd64] http://repo.sawtooth.me/ubuntu/bumper/stable xenial universe" >> /etc/apt/sources.list \
  && echo "deb http://archive.ubuntu.com/ubuntu bionic-backports universe" >> /etc/apt/sources.list \
+ && echo "deb [arch=amd64] http://repo.sawtooth.me/ubuntu/bumper/stable xenial universe" >> /etc/apt/sources.list \
+ && echo 'deb http://ppa.launchpad.net/gophers/archive/ubuntu bionic main' >> /etc/apt/sources.list \
  && (apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8AA7AF1F1091A5FD \
  || apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 8AA7AF1F1091A5FD) \
+ && (apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 308C15A29AD198E9 \
+ || apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 308C15A29AD198E9) \
  && apt-get update \
- && apt-get install -y -q --no-install-recommends \
-    apt-utils \
  && apt-get install -y -q \
     build-essential \
-    golang-1.10-go \
+    golang-1.11-go \
     git \
     libssl-dev \
     libzmq3-dev \
     openssl \
-    ca-certificates \
-    inetutils-ping \
-    libffi-dev \
     python3-grpcio-tools \
     python3-sawtooth-cli \
     python3-sawtooth-sdk \
@@ -31,7 +29,7 @@ RUN echo "deb [arch=amd64] http://repo.sawtooth.me/ubuntu/ci bionic universe" >>
 
 RUN mkdir -p /app
 ENV GOPATH=/go:/go/src/github.com/hyperledger/sawtooth-sdk-go:/app
-ENV PATH=$PATH::/go/bin:/usr/lib/go-1.10/bin:/app
+ENV PATH=$PATH::/go/bin:/usr/lib/go-1.11/bin:/app
 
 RUN go get -u \
     github.com/golang/protobuf/proto \
